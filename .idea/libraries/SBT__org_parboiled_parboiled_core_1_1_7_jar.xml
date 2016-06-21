@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: org.parboiled:parboiled-core:1.1.7:jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/jars/org.parboiled/parboiled-core/parboiled-core-1.1.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/srcs/org.parboiled/parboiled-core/parboiled-core-1.1.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: org.scalatra.scalate:scalate-util_2.11:1.7.0:jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/bundles/org.scalatra.scalate/scalate-util_2.11/scalate-util_2.11-1.7.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/srcs/org.scalatra.scalate/scalate-util_2.11/scalate-util_2.11-1.7.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

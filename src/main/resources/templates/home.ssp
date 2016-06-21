@@ -1,0 +1,48 @@
+<%@ val publicResourcePath: String = "/" %>
+<%@ val session: com.kolich.spray.models.SessionData %>
+
+<!doctype html>
+<html>
+<head>
+	<title>Hello, world!</title>
+	<script src="<%= publicResourcePath %>/vendor/ext-all.js"></script>
+	<link rel="stylesheet" type="text/css" href="<%= publicResourcePath %>/vendor/resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="<%= publicResourcePath %>/css/app.css" />
+</head>
+<body>
+
+<h2>Hello, world!</h2>
+
+<h3>You're logged in.</h3>
+
+<a href="logout">Logout</a>
+
+<p>
+	<h3>Here's some data loaded from the web-session, rendered via the "home.ssp" Scalate template.</h3>
+	<ul>
+		<li>Username: <%= session.username %></li>
+		<li>Session ID: <%= session.id %></li>
+	</ul>
+</p>
+
+<p>
+	<h3>Here's a cute image, showing the use of the container's default servlet to serve "static" content.</h3>
+	<p><img src="<%= publicResourcePath %>/images/kitten.jpg"></p>
+</p>
+
+<p>
+	<h3>Here's an ExtJS grid panel that's rendered using JSON as fetched from Spray.</h3>
+	<h4>Loaded AJAX'y &mdash; an ExtJS store calls <a href="api/users">api/users</a> handled internally by service.routes.AjaxApiService</h4>
+	<div id="gridpanel-demo"></div>
+</p>
+
+<p>
+	<h3>Fill in some fields and add a new user.</h3>
+	<h4>Watch the POST request in your local Firebug or developer tools console.</h4>
+	<div id="add-user-panel"></div>
+</p>
+
+<script src="<%= publicResourcePath %>/js/home.js"></script>
+
+</body>
+</html>

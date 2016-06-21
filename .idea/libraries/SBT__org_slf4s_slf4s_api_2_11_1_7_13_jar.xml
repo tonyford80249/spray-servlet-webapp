@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: org.slf4s:slf4s-api_2.11:1.7.13:jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/jars/org.slf4s/slf4s-api_2.11/slf4s-api_2.11-1.7.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/srcs/org.slf4s/slf4s-api_2.11/slf4s-api_2.11-1.7.13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

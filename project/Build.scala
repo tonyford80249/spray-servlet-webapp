@@ -39,6 +39,7 @@ object Dependencies {
   val jettyVersion = "8.1.10.v20130312"
   // Internal dependencies
 
+  private val useScalaVersion = "2.11.8" //"2.11.6"
   private val scalajs ="org.scala-js" % "scalajs-dom_sjs0.6_2.11" % "0.9.0"  % "compile"
   private val lihoyi = "com.lihaoyi" %% "utest" % "0.3.0" % "test"
 
@@ -49,9 +50,9 @@ object Dependencies {
 
   private val gson = "com.google.code.gson" % "gson" % "2.2.4" % "compile"
 
-  private val compiler = "org.scala-lang" % "scala-compiler" % "2.11.6"  % "compile"
-  private val library = "org.scala-lang" % "scala-library" % "2.11.6"  % "compile"
-  private val reflect = "org.scala-lang" % "scala-reflect" % "2.11.6"  % "compile"
+  private val compiler = "org.scala-lang" % "scala-compiler" % useScalaVersion  % "compile"
+  private val library = "org.scala-lang" % "scala-library" % useScalaVersion  % "compile"
+  private val reflect = "org.scala-lang" % "scala-reflect" % useScalaVersion  % "compile"
 
   // External dependencies`
 
@@ -85,12 +86,13 @@ object Dependencies {
   private val sprayJson = "io.spray" %% "spray-json" % "1.3.2" % "compile"
   
   private val scalate = "org.scalatra.scalate" %% "scalate-core" % "1.7.0" % "compile"
+  private val scalatexitrum = "tv.cntt" %% "xitrum-scalate" % "2.5"
   private val commonsLang3  = "org.apache.commons" % "commons-lang3" % "3.1" % "compile"
   
   val deps = Seq(jettyWebApp, jettyPlus, jettyJsp, scalalog, slf4s,
     jspApi, jstl, servlet, scalaxml, compiler,
     library, reflect, parboiled,
-    logback, logbackClassic, slf4j, jclOverSlf4j, 
+    logback, logbackClassic, slf4j, jclOverSlf4j,
     akkaActor, akkaSlf4j, shapeless,
     sprayServlet, sprayJson, sprayRouting,
     scalate, scalajs, lihoyi,
@@ -108,6 +110,8 @@ object Resolvers {
 }
 
 
+
+
 object SprayServletWebapp extends Build {
 
   import Dependencies._
@@ -123,8 +127,9 @@ object SprayServletWebapp extends Build {
     settings = Defaults.defaultSettings ++ Seq(resolvers := depResolvers) ++ Seq(
       version := aVer,
       organization := aOrg,
-      scalaVersion := "2.11.6",
+      scalaVersion := "2.11.8",
       scalacOptions ++= Seq("-Ylog-classpath"),
+      javacOptions ++= Seq("-source", "1.8"),
       scalaHome := Some(file("/Program Files (x86)/scala/")),
       ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
       shellPrompt := { (state: State) => { "%s:%s> ".format(aName, aVer) } },
@@ -204,5 +209,6 @@ object SprayServletWebapp extends Build {
         // Make sure SBT also fetches/loads the "src" (source) JAR's for
         // all declared dependencies.
         EclipseKeys.withSource := true))
+
 
 }

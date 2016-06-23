@@ -30,15 +30,6 @@ import scala.language.postfixOps
 import com.kolich.spray.service._
 
 
-import akka.actor._
-import spray.routing._
-import spray.util._
-import spray.http._
-import spray.http.HttpHeaders._
-import spray.http.StatusCodes._
-import spray.http.MediaTypes._
-import spray.http.HttpMethods._
-
 class WebAppService extends Service {
 
   override def receive = runRoute {

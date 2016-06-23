@@ -4,6 +4,8 @@
       <root url="jar://$PROJECT_DIR$/lib_managed/jars/ch.qos.logback/logback-core/logback-core-1.1.7.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib_managed/srcs/ch.qos.logback/logback-core/logback-core-1.1.7-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

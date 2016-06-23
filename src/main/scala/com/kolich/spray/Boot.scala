@@ -36,18 +36,24 @@ import akka.routing._
 import com.typesafe.scalalogging.LazyLogging
 import spray.servlet._
 import spray.routing._
+import org.fusesource.scalate.TemplateEngine
+import java.io.File
 
 
 class Boot extends WebBoot with LazyLogging  {
 
   val system = ActorSystem("spray-servlet-webapp")
-    
 
   val webAppService = system.actorOf(Props[WebAppService])
+
+  val restApi = system.actorOf(Props[ClientSideMVC])
+
   
   class RootServiceActor extends HttpServiceActor {
     override def receive = runRoute {
-       {
+       pathPrefix("api") {
+         restApi ! _
+       } ~ {
     	  // Any other request that does not start with "api" is
     	  // sent here, the generic web-app service.
     	  webAppService ! _

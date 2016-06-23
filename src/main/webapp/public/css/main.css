@@ -1,0 +1,311 @@
+/* DIV: MainLayout.jsp */
+#outerMostDiv{
+  /*width:980px;*/
+  margin-left:auto;
+  margin-right:auto;
+}
+#userMessagesDiv{
+ position:relative;
+ left:0em;
+ top:0em;
+}
+/* END DIV: MainLayout.jsp */
+
+
+#BodyTag {
+	margin: 0px 6px 2px 6px !important;
+}
+
+#topmenu {
+	width: 100%;
+}
+
+.TopLevelTable {
+	width: 970px;
+	max-width: 970px;
+}
+
+.MainContentCell {
+	background-color: #F0F0F0;
+	width: 100%;
+}
+
+.MainContentDiv {
+	padding: 10px 10px 20px 10px;
+}
+
+.HelpLink {
+	VERTICAL-ALIGN: top;
+	FONT-SIZE: 70%;
+}
+
+fieldset {
+	padding: 1em;
+	margin: 0;
+	text-align: left;
+	border: 1px solid gray;
+}
+
+legend {
+	font-style: italic;
+	padding: 1px 5px 1px 5px;
+}
+
+.title {
+	FONT-WEIGHT: bold;
+}
+
+h1,h2,h3,h4 {
+	color: navy;
+}
+
+h4 {
+	padding: 5px 0 5px 0;
+}
+
+a.hidden_lnk {
+	color: black;
+	text-decoration: none;
+}
+
+a.hidden_lnk:hover {
+	text-decoration: none;
+}
+
+.SmallText {
+	VERTICAL-ALIGN: top;
+	FONT-SIZE: 75%;
+}
+
+.BoldText {
+	FONT-WEIGHT: bold;
+}
+
+.GrayText {
+	color: gray;
+}
+
+.requiredControl {
+	background-color: #AFEEEE;
+}
+
+div.vspacer {
+	height: 15px;
+}
+
+.MessagesDiv {
+	width: 100%;
+	text-align: center;
+}
+
+.Messages {
+	padding: 5px 5px 5px 5px;
+}
+
+.ErrorMessage {
+	COLOR: red;
+}
+
+.UserMessage {
+	COLOR: black;
+}
+
+.ErrorMessage,.UserMessage {
+	FONT-WEIGHT: bold;
+	padding: 2px 2px 2px 2px;
+	margin: 3px 3px 3px 3px;
+	background: #FFFACD;
+	border: 1px solid #c7c7c7;
+	text-align: center;
+}
+
+.ErrorMessage * span,.UserMessage * span {
+	padding: 5px 5px 5px 5px;
+}
+
+.welcome {
+	color: navy;
+	font-weight: bold;
+	font-size: 175%;
+	text-align: center;
+	margin-top: 200px;
+	margin-bottom: 200px;
+}
+
+.footer {
+	width: 100%;
+	padding-top: 10px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.sec_notice {
+	width: 500px;
+	padding: 10px 0 20px 0;
+	font-weight: bold;
+}
+
+.SectionTitle, .TabTitle {
+	font-weight: bold;
+	padding-top: 10px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.delete-icon {
+	cursor: pointer;
+	background: transparent url(../images/del_icon.jpg) no-repeat center
+		center;
+	width: 16px;
+	height: 16px;
+}
+
+.download-icon {
+	cursor: pointer;
+	background: transparent url(../images/download_icon.jpg) no-repeat center
+		center;
+	width: 16px;
+	height: 16px;
+}
+
+.assignmentList {
+	width: 250px;
+}
+
+.assignmentBtn {
+	width: 100px;
+	margin: 1px 2px 1px 2px;
+}
+
+.SubsectionTitle {
+	text-transform: uppercase;
+	padding-top: 10px;
+}
+
+.AjaxIndicatorMsg {
+	color: red;
+	font-size: 75%;
+}
+
+.fullwidth {
+	width: 100% !important;
+}
+
+#UserPerformanceRecordList {
+	width: 650px;
+}
+
+.popupCalendar {
+	display: none;
+	position: absolute !important;
+	left: 300px;
+	top: 100px;
+	z-index: 2
+}
+
+input.ro_true,textarea.ro_true {
+	background-color: #FFFFFF;
+	border-width: 0px;
+}
+
+select.ro_true {
+	background-color: #FFFFFF;
+}
+
+.important_msg {
+	color: red;
+	font-weight: bold;
+}
+
+a,a.TabLink {
+	cursor: pointer;
+	color: teal;
+}
+
+a:hover,a.TabLink:hover {
+	color: #00A0A0;
+}
+
+a.TabLinkDisabled {
+	text-decoration: none !important;
+	color: grey !important;
+	cursor: default !important;
+}
+
+a.TabLinkDisabled:hover {
+	color: grey !important;
+}
+
+.TabListDisabled {
+	display: none !important;
+}
+
+.TabBodyEnabled {
+	left: 0px !important;
+	position: relative !important;
+	visibility: visible !important;
+}
+
+.yui-skin-sam .yui-navset .TabContainerEnabled {
+	background-color: #F0F0F0 !important;
+}
+
+.TabContainerEnabled {
+	background-color: #F0F0F0 !important;
+	border-style: hidden !important;
+
+}
+
+.TabTitle {
+	display: none;
+	font-size: 100%;
+	padding: 10px 0 10px 0;
+}
+
+.TabTitleEnabled {
+	display: block !important;
+}
+
+
+textarea {
+	width: 100%;
+	height: 65px;
+	*overflow: auto;
+}
+
+label {
+	white-space: nowrap;
+}
+
+input.short {
+	width: 75px;
+}
+
+input.medium {
+	width: 320px;
+}
+
+input.long {
+	width: 500px;
+}
+
+.picker_icon {
+	border-width: 0px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.date_picker_container {
+	display: none;
+	position: absolute !important;
+	left: 300px;
+	top: 100px;
+	z-index: 2
+}
+
+.toolTip {
+	font-size: 70%;
+	font-weight: normal;
+	color: teal;
+	text-decoration: underline;
+	text-transform: none;
+}

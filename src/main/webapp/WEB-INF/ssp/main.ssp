@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Innovation Sprint Work.">
+    <meta name="author" content="Tony Ford & Robert Perry">
+    <title>Client Side MVC</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/spray/public/css/bootstrap.min.css"/>
+    <link href="/spray/public/css/bootstrap-select.css" rel="stylesheet" media="screen"/>
+    <link href="/spray/public/css/ui.jqgrid.css" rel="stylesheet" type="text/css"  media="screen"/>
+    <link href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/spray/public/css/jquery.datetimepicker.css" media="screen"/>
+    <link href="/spray/public/css/jquery-ui.css" rel="stylesheet" type="text/css"  media="screen"/>
+
+    <script>
+
+              var ServiceConfiguration = function() {
+                this.serviceRoot = "/spray";
+                this.home = this.serviceRoot + "/main/console/page";
+                this.bookRequestUrl = this.serviceRoot + "/toc/books";
+                this.chapterRequestUrl = this.serviceRoot + "/toc/chapters";
+                this.verseRequestUrl = this.serviceRoot + "/toc/verses";
+                this.maxRecords = 350;
+                this.pageSize = 15;
+                this.pathSepartor = "\\";
+              }
+              
+              var SERVICE_CONFIGURATION = new ServiceConfiguration();
+              
+    </script>
+
+    </head>
+    <body>        
+        <script data-main="/spray/public/js/main" src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
+    </body>
+</html>

@@ -1,9 +1,9 @@
 package com.kolich.spray.domain
 
 /**
-  * Created by romeo on 6/23/2016.
+  * Created by U454343 on 6/24/2016.
   */
 trait Story {
   val name : String
-  val description : String
+  var description : String
 }

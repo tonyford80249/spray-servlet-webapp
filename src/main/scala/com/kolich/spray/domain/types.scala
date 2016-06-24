@@ -4,7 +4,7 @@ package com.kolich.spray.domain
   * Created by romeo on 6/23/2016.
   */
 object types {
-  trait Status
+  sealed trait Status
 
   class IsDefined extends Status
   class InProgress extends Status
@@ -15,7 +15,7 @@ object types {
   class IsClosed extends Status
   class IsDead extends Status
 
-  trait Tier
+  sealed trait Tier
 
   class Tier1 extends Tier
   class Tier2 extends Tier
@@ -26,6 +26,7 @@ object types {
   }
 
   class HalfPoint() extends StoryPoints(.5, "half a point")
+  class OnePoint() extends StoryPoints(1, "half a point")
   class TwoPoints() extends StoryPoints(2, "two points")
   class ThreePoints() extends StoryPoints(3, "three points")
   class FivePoints() extends StoryPoints(5, "five points")

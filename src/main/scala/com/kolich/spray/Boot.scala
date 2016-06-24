@@ -60,8 +60,38 @@ class Boot extends WebBoot with LazyLogging  {
       }
     }
   }
-  
-  val serviceActor = system.actorOf(Props(new RootServiceActor))
+
+//  class ServiceProxy extends Actor {
+//    val endpoint = context.actorOf(Props(new RootServiceActor))
+//
+//    def receive = {
+//      case x => endpoint forward x
+//    }
+//  }
+
+  class RootServiceRouter  extends Actor {
+    val resizer = DefaultResizer(lowerBound = 2, upperBound = 15)
+
+    //val router: ActorRef = context.actorOf(RoundRobinPool(5, Some(resizer)).props(Props[ServiceProxy]),"router")
+    //val router: ActorRef = context.actorOf(Props(new RootServiceActor).withRouter(RoundRobinPool(5)), name = "router")
+    var router = {
+      val routees = Vector.fill(5) {
+        val r = context.actorOf(Props(new RootServiceActor))
+        context watch r
+
+        ActorRefRoutee(r)
+      }
+
+      Router(RoundRobinRoutingLogic(), routees)
+    }
+
+
+    def receive = {
+      case x => router.route(x, sender())
+    }
+  }
+
+  val serviceActor = system.actorOf(Props(new RootServiceRouter))
   
   system.registerOnTermination {
 	  logger.info("Root actor system shutting down...")

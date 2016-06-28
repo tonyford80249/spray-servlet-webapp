@@ -1,10 +1,10 @@
-define('primary_view', ['jquery', 'underscore', 'backbone', 'base_view', 'content_view', 'top_menu_view', 'modal_view'],
-       function($, _, Backbone, BaseView, ContentPane, TopMenuView, ModalView) {
+define('primary_view', ['jquery', 'underscore', 'backbone', 'base_view', 'content_view', 'top_menu_view', 'modal_view', 'primary_dispatcher','setup_main_menu'],
+       function($, _, Backbone, BaseView, ContentPane, TopMenuView, ModalView, PrimaryDispatcher) {
            var content  = new ContentPane();
 
 
             //var content  = new GenerateBaselinePane();
-           
+
            //'generate_baseline_view','baseline_compare_view','baseline_search_view','baseline_dir_compare_view','baseline_stats_view','delta_search_view'
            return Backbone.View.extend(_.extend(BaseView, {               
                el: 'body',
@@ -41,20 +41,15 @@ define('primary_view', ['jquery', 'underscore', 'backbone', 'base_view', 'conten
                     
                    this.$("#maintContentSection").html('<div id="contentWrapper"></div>');
 
-
-
                   self.assign(new TopMenuView(), '#topMenuBarSection');
-
-
 
                    //self.assign(TopMenuView, '#topMenuBarSection');
                    
                    self.assign(content, '#contentWrapper');
 
-
-
                    self.assign(new ModalView(), '#modalSection');
 
+                   PrimaryDispatcher.trigger("main_menu_setup", {self:this, ref: this.$} ,"display menu");
 
                    //self.assign(ModalView, '#modalSection');
 

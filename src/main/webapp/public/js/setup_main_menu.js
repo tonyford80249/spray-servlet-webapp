@@ -1,4 +1,4 @@
-define('setup_main_menu',['jquery', 'underscore', 'backbone', 'primary_dispatcher'],
+define('setup_main_menu',['jquery', 'underscore', 'backbone', 'primary_dispatcher', 'setup_project_view'],
        function($, _, Backbone, PrimaryDispatcher) {
 
           PrimaryDispatcher.on("main_menu_setup", function(context, msg) {
@@ -6,7 +6,7 @@ define('setup_main_menu',['jquery', 'underscore', 'backbone', 'primary_dispatche
 
 
              $("#listProjs").click(function(){
-                    alert("you clicked Project");
+                 PrimaryDispatcher.trigger('setup_project_view', context, "show project view");
              });
 
              $("#listEpics").click(function(){

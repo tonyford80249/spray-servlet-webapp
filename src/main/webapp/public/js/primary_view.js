@@ -11,6 +11,17 @@ define('primary_view', ['jquery', 'underscore', 'backbone', 'base_view', 'conten
                initialize: function() {
                    var self = this;
 
+                    PrimaryDispatcher.on('display_content', function(new_content, msg) {
+
+                       self.unassign(content);
+                       self.$("#maintContentSection").html('<div id="contentWrapper"></div>');
+
+                       ///content = new ProjectView();
+                       self.assign(new_content, '#contentWrapper');
+
+                       content = new_content;
+                    });
+
                 
                    self.render();                                                                                
                },

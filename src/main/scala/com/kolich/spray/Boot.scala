@@ -44,22 +44,22 @@ class Boot extends WebBoot with LazyLogging  {
 
   val system = ActorSystem("spray-servlet-webapp")
 
-  val webAppService = system.actorOf(Props[WebAppService])
-
-  val restApi = system.actorOf(Props[ClientSideMVC])
-
-  
-  class RootServiceActor extends HttpServiceActor {
-    override def receive = runRoute {
-       pathPrefix("api") {
-         restApi ! _
-       } ~ {
-    	  // Any other request that does not start with "api" is
-    	  // sent here, the generic web-app service.
-    	  webAppService ! _
-      }
-    }
-  }
+//  val webAppService = system.actorOf(Props[WebAppService])
+//
+//  val restApi = system.actorOf(Props[ClientSideMVC])
+//
+//
+//  class RootServiceActor extends HttpServiceActor {
+//    override def receive = runRoute {
+//       pathPrefix("api") {
+//         restApi ! _
+//       } ~ {
+//    	  // Any other request that does not start with "api" is
+//    	  // sent here, the generic web-app service.
+//    	  webAppService ! _
+//      }
+//    }
+//  }
 
 //  class ServiceProxy extends Actor {
 //    val endpoint = context.actorOf(Props(new RootServiceActor))
@@ -69,29 +69,33 @@ class Boot extends WebBoot with LazyLogging  {
 //    }
 //  }
 
-  class RootServiceRouter  extends Actor {
-    val resizer = DefaultResizer(lowerBound = 2, upperBound = 15)
+//  class RootServiceRouter  extends Actor {
+//    val resizer = DefaultResizer(lowerBound = 2, upperBound = 15)
+//
+//    //val router: ActorRef = context.actorOf(RoundRobinPool(5, Some(resizer)).props(Props[ServiceProxy]),"router")
+//    //val router: ActorRef = context.actorOf(Props(new RootServiceActor).withRouter(RoundRobinPool(5)), name = "router")
+//    var router = {
+//      val routees = Vector.fill(5) {
+//        val r = context.actorOf(Props(new RootServiceActor))
+//        context watch r
+//
+//        ActorRefRoutee(r)
+//      }
+//
+//      Router(RoundRobinRoutingLogic(), routees)
+//    }
+//
+//
+//    def receive = {
+//      case x => router.route(x, sender())
+//    }
+//  }
 
-    //val router: ActorRef = context.actorOf(RoundRobinPool(5, Some(resizer)).props(Props[ServiceProxy]),"router")
-    //val router: ActorRef = context.actorOf(Props(new RootServiceActor).withRouter(RoundRobinPool(5)), name = "router")
-    var router = {
-      val routees = Vector.fill(5) {
-        val r = context.actorOf(Props(new RootServiceActor))
-        context watch r
+//  val serviceActor = system.actorOf(Props(new RootServiceRouter))
 
-        ActorRefRoutee(r)
-      }
+  val resizer = DefaultResizer(lowerBound = 2, upperBound = 15)
 
-      Router(RoundRobinRoutingLogic(), routees)
-    }
-
-
-    def receive = {
-      case x => router.route(x, sender())
-    }
-  }
-
-  val serviceActor = system.actorOf(Props(new RootServiceRouter))
+  val serviceActor = system.actorOf(RoundRobinPool(5, Some(resizer)).props(Props[Worker]),  "router30")
   
   system.registerOnTermination {
 	  logger.info("Root actor system shutting down...")

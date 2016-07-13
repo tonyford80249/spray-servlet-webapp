@@ -210,5 +210,5 @@ object SprayServletWebapp extends Build {
         // all declared dependencies.
         EclipseKeys.withSource := true))
 
-
+	sprayServletWebapp.enablePlugins(ScalaJSPlugin)
 }
